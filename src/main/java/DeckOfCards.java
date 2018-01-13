@@ -64,7 +64,16 @@ public class DeckOfCards {
 	
 	public String inspect(int index)
 	{
-		return Deck.get(0).toString();		//Return the card on top of the Deck
+		String output;
+		try {
+			output = Deck.get(0).toString(); //Return the card on top of the Deck
+		}
+		catch(IndexOutOfBoundsException ex)
+		{
+			output = "All cards have been dealt";
+		}
+		
+		return output;
 	}
 	
 	public String inspect(ArrayList<Card> T)		//Return all the cards in the given deck
